@@ -1,5 +1,6 @@
 package com.tecnologiaefinancas.orderms.entity;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 
@@ -12,6 +13,16 @@ public class OrderItem {
 
     @Field(targetType = FieldType.DECIMAL128)
     private BigDecimal price;
+
+    public OrderItem() {
+    }
+
+    public OrderItem(String product, Integer quantity, BigDecimal price){
+        this.product = product;
+        this.quantity = quantity;
+        this.price = price;
+
+    }
 
     public String getProduct() {
         return product;
@@ -37,6 +48,5 @@ public class OrderItem {
         this.price = price;
     }
 
-    public OrderItem() {
-    }
+
 }
